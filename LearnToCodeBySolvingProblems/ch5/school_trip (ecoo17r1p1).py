@@ -1,6 +1,5 @@
 YEAR_COSTS = [12, 10, 7, 5]
 
-
 for dataset in range(10):
     trip_cost = int(input())
     proportions = input().split()
