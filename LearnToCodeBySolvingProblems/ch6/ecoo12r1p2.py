@@ -1,6 +1,5 @@
 PROMOTER = 'TATAAT'
 
-
 def complement(s):
     """
     s is a string of DNA.

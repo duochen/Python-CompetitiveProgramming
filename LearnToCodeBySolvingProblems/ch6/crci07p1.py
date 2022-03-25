@@ -7,7 +7,6 @@ def covers(platform, horizontal_pos):
     """
     return platform[1] <= horizontal_pos and platform[2] >= horizontal_pos
 
-
 def pillar_from(platforms, height, horizontal_pos):
     """
     platforms is a list of platforms.

@@ -15,7 +15,6 @@ b       1 2           3  4   5                6      7
 """
 FIRST_HALF = 1440
 
-
 a = int(input())
 times_a = []
 for i in range(a):

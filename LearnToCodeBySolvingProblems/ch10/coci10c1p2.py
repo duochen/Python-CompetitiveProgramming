@@ -1,6 +1,5 @@
 # Here's an O(n) solution.
 
-
 def max_consecutive(desks, grade):
     """
     desks is a list of desks; each desk is a list of two grades.
