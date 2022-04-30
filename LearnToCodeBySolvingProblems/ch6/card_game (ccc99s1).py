@@ -1,6 +1,5 @@
 NUM_CARDS = 52
 
-
 def no_high(lst):
     """
     lst is a list of strings representing cards.
@@ -16,7 +15,6 @@ def no_high(lst):
     if 'ace' in lst:
         return False
     return True
-
 
 deck = []
 
