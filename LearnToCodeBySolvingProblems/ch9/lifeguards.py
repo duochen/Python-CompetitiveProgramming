@@ -1,42 +1,36 @@
-def num_covered(intervals, fired):
-    """
-    intervals is a list of lifeguard intervals;
-    each interval is a [start, end] list.
-    fired is the index of the lifeguard to fire.
+"""
+ID: duochen2
+LANG: PYTHON3
+TASK: lifeguards
+"""
 
-    Return the number of time units covered by all lifeguards
-    except the one fired.
-    """
-    covered = set()
-    for i in range(len(intervals)):
-        if i != fired:
-            interval = intervals[i]
-            for j in range(interval[0], interval[1]):
-                covered.add(j)
-    return len(covered)
+with open('lifeguards.in', 'r') as fin:
+    N = int(fin.readline())
+    start = []
+    end = []
+    for i in range(N):
+        line = fin.readline().strip().split(' ')
+        start.append(int(line[0]))
+        end.append(int(line[1]))
+    numCover = [0] * 1000
+    for i in range(N):
+        for t in range(start[i], end[i]):
+            numCover[t] += 1
 
+    maxCover = 0
+    for i in range(N):
+        # We fire lifeguard i temporarily
+        for t in range(start[i], end[i]):
+            numCover[t] -= 1
 
-input_file = open('lifeguards.in', 'r')
-output_file = open('lifeguards.out', 'w')
+        covered = 0
+        for t in range(1000):
+            if numCover[t] > 0:
+                covered += 1
+        maxCover = max(maxCover, covered)
+        # Revert the firing
+        for t in range(start[i], end[i]):
+            numCover[t] += 1
 
-n = int(input_file.readline())
-
-intervals = []
-
-for i in range(n):
-    interval = input_file.readline().split()
-    interval[0] = int(interval[0])
-    interval[1] = int(interval[1])
-    intervals.append(interval)
-
-max_covered = 0
-
-for fired in range(n):
-    result = num_covered(intervals, fired)
-    if result > max_covered:
-        max_covered = result
-
-output_file.write(f'{max_covered}\n')
-
-input_file.close()
-output_file.close()
+    with open('lifeguards.out', 'w') as fout:
+        fout.write(f"{maxCover}")    
