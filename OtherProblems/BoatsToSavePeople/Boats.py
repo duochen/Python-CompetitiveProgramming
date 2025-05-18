@@ -10,7 +10,7 @@ class Solution:
 
         boats_number = 0
 
-        while(left<=left):
+        while(left<=right):
             if(left==right):
                 boats_number+=1
                 break
